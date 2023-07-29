@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hand Detection and Video Playback</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+    }
+
+    /* Container for the video and webcam */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Video element */
+    #video {
+      width: 640px;
+      height: 480px;
+    }
+
+    /* Webcam element */
+    #webcam {
+      width: 200px;
+      height: 100px;
+    }
+
+    /* Canvas element */
+    #canvas {
+      display: none; /* Hide the canvas for now */
+    }
+
+    /* Image element */
+    #animationImage {
+      position: absolute;
+      top: 200px; /* Adjust the top position as needed */
+      left: -200px;
+      width: 100px; /* Adjust the width and height as needed */
+      height: 50px;
+      display: none;
+      transition: left 5s linear; /* Add transition for smooth animation */
+    }
+
+    /* Styling for the h1 element showing the punch count */
+    h1 {
+      margin-top: 20px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hand Detection and Video Playback</h1>
+  <div class="container">
+    <video id="video" autoplay muted>
+      <source src="assets/video.mp4" type="video/mp4">
+    </video>
+    <video id="webcam" autoplay></video>
+  </div>
+  <canvas id="canvas" width="640" height="480"></canvas>
+  <img id="animationImage" src="assets/1.png" alt="Spaceship">
+  <h1 id="punchCount">Point(s): 0</h1>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
+  <script src="script.js"></script>
+</body>
+</html>
